@@ -6,13 +6,13 @@
       <div class="container">
         <div class="row no-gutters slider-text align-items-center justify-content-center">
           <div class="col-md-9 ftco-animate text-center">
-          	<p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home</a></span> <span>Cart</span></p>
+          	<p class="breadcrumbs"><span class="mr-2">Home Cart</span></p>
             <h1 class="mb-0 bread">My Wishlist</h1>
           </div>
         </div>
       </div>
-    </div>
-
+	</div>
+	
     <section class="ftco-section ftco-cart">
 			<div class="container">
 				<div class="row">
@@ -36,7 +36,7 @@
 						        <td class="image-prod"><div class="img" style="background-image:url(images/product-3.jpg);"></div></td>
 						        
 						        <td class="product-name">
-						        	<h3>Nike Free RN 2019 iD</h3>
+						        	<h3>Nike Free RN 2020 iD</h3>
 						        	<p>Far far away, behind the word mountains, far from the countries</p>
 						        </td>
 						        
@@ -57,7 +57,7 @@
 						        <td class="image-prod"><div class="img" style="background-image:url(images/product-4.jpg);"></div></td>
 						        
 						        <td class="product-name">
-						        	<h3>Nike Free RN 2019 iD</h3>
+						        	<h3>Nike Free RN 2020  iD</h3>
 						        	<p>Far far away, behind the word mountains, far from the countries</p>
 						        </td>
 						        
@@ -86,7 +86,7 @@
     					</p>
     					<p class="d-flex">
     						<span>Delivery</span>
-    						<span>$0.00</span>
+    						<span>$3.00</span>
     					</p>
     					<p class="d-flex">
     						<span>Discount</span>
@@ -95,10 +95,10 @@
     					<hr>
     					<p class="d-flex total-price">
     						<span>Total</span>
-    						<span>$17.60</span>
+    						<span>$14.60</span>
     					</p>
     				</div>
-    				<p class="text-center"><a href="checkout.html" class="btn btn-primary py-3 px-4">Proceed to Checkout</a></p>
+    				<p class="text-center"><a href="/checkout" class="btn btn-primary py-3 px-4">Proceed to Checkout</a></p>
     			</div>
     		</div>
 			</div>

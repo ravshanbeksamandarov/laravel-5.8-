@@ -75,7 +75,7 @@
 	          		<p style="color: #000;">80 piece available</p>
 	          	</div>
           	</div>
-          	<p><a href="cart.html" class="btn btn-black py-3 px-5 mr-2">Add to Cart</a><a href="cart.html" class="btn btn-primary py-3 px-5">Buy now</a></p>
+          	<p><a href="/card" class="btn btn-black py-3 px-5 mr-2">Add to Cart</a><a href="/card" class="btn btn-primary py-3 px-5">Buy now</a></p>
     			</div>
     		</div>
 
@@ -99,7 +99,7 @@
 
               <div class="tab-pane fade show active" id="v-pills-1" role="tabpanel" aria-labelledby="day-1-tab">
               	<div class="p-4">
-	              	<h3 class="mb-4">Nike Free RN 2019 iD</h3>
+	              	<h3 class="mb-4">Nike Free RN 2020 iD</h3>
 	              	<p>On her way she met a copy. The copy warned the Little Blind Text, that where it came from it would have been rewritten a thousand times and everything that was left from its origin would be the word "and" and the Little Blind Text should turn around and return to its own, safe country. But nothing the copy said could convince her and so it didn’t take long until a few insidious Copy Writers ambushed her, made her drunk with Longe and Parole and dragged her into their agency, where they abused her for their.</p>
               	</div>
               </div>
@@ -119,7 +119,7 @@
 								   		<div class="desc">
 								   			<h4>
 								   				<span class="text-left">Jacob Webb</span>
-								   				<span class="text-right">14 March 2018</span>
+								   				<span class="text-right">14 March 2020</span>
 								   			</h4>
 								   			<p class="star">
 								   				<span>
@@ -139,7 +139,7 @@
 								   		<div class="desc">
 								   			<h4>
 								   				<span class="text-left">Jacob Webb</span>
-								   				<span class="text-right">14 March 2018</span>
+								   				<span class="text-right">14 March 2020</span>
 								   			</h4>
 								   			<p class="star">
 								   				<span>
@@ -159,7 +159,7 @@
 								   		<div class="desc">
 								   			<h4>
 								   				<span class="text-left">Jacob Webb</span>
-								   				<span class="text-right">14 March 2018</span>
+								   				<span class="text-right">14 March 2020</span>
 								   			</h4>
 								   			<p class="star">
 								   				<span>
