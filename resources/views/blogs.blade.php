@@ -5,7 +5,7 @@
 <div class="hero-wrap hero-bread" style="background-image: url('images/bg_6.jpg');">
       <div class="container">
         <div class="row no-gutters slider-text align-items-center justify-content-center">
-          <div class="col-md-9 ftco-animate text-center">
+          <div class="col-md-12 ftco-animate text-center">
           	<p class="breadcrumbs"><span class="mr-2"><a href="/">Home</a></span> <span>Blog</span></p>
             <h1 class="mb-0 bread">Single Blog</h1>
           </div>
@@ -17,7 +17,11 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-8 ftco-animate">
-						<h2 class="mb-3">8 Tips For Shopping</h2>
+
+
+						<h2 class="mb-3">{{$post->title}}</h2>
+            
+            
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis, eius mollitia suscipit, quisquam doloremque distinctio perferendis et doloribus unde architecto optio laboriosam porro adipisci sapiente officiis nemo accusamus ad praesentium? Esse minima nisi et. Dolore perferendis, enim praesentium omnis, iste doloremque quia officia optio deserunt molestiae voluptates soluta architecto tempora.</p>
             <p>
               <img src="images/image_1.jpg" alt="" class="img-fluid">

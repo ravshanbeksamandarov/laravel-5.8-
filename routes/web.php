@@ -11,14 +11,12 @@
 |
 */
 
-// use App\Http\Controllers\SiteController;
-
 use App\Http\Controllers\SiteController;
 
-Route::get('/', 'SiteController@home')->name('home');
-    
+    Route::get('/', 'SiteController@home')->name('home');
+
     //Catalog/Shop
-    
+
     Route::get('/shop', 'SiteController@shop')->name('Shop');
 
     //Catalog/Single
@@ -33,29 +31,38 @@ Route::get('/', 'SiteController@home')->name('home');
     // Route::get('/news', function(){
     //     return "News";
     // })->name('news');
-    
+
     // Route::get('/news/{date}/{slug}', function($date, $slug){
     //     echo $date;
     //     echo "<br>";
     //     echo $slug;
     // })->name('news');
-    
+
     //About us
-    
+
     Route::get('/about', 'SiteController@about')->name('About');
 
     //Blog
 
     Route::get('/blog', 'SiteController@blog')->name('Blog');
-    
+
     //Blog-single
 
-    Route::get('blogs', 'SiteController@blogs')->name('Blog-single');
-    
+    Route::get('/blog/{id}', 'SiteController@blogs')->name('Blog-single');
+
     //Contact
-    
+
     Route::get('/contact', 'SiteController@contact')->name('Contact');
 
     //Card
 
     Route::get('/card', 'SiteController@card')->name('Cart');
+
+    //Admin routes
+
+    Route::prefix('admin')->group(function()
+    {
+        Route::resource('posts', 'Admin\PostController');
+    });
+
+
