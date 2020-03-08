@@ -2,20 +2,29 @@
 
 @section('content')
 
-
 <div class="col-md-12">
     <div class="card">
         <div class="card-header py-3">
             <h6 class="m-0 font-weight-blod text-primary">
                 Maqolalar
-            <a class="btn btn-sm btn-info float-right" href="{{ route('posts.create') }}">Yangilik qo'shish</a>
-            </h6>
+            <a class="btn btn-sm btn-info float-right" href="{{ route('admin.posts.create') }}">Yangilik qo'shish</a>
+        </h6>
         </div>
         <div class="card-body">
-            {{-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> --}}
+            @if (session()->has('success'))
+                <div class="alert alert-success">
+                    {{ session()->get('success') }}
+                </div>
+            @endif
+            @if (session()->has('delete'))
+            <div class="alert alert-danger">
+                {{ session()->get('delete') }}
+            </div>
+        @endif
             <table class="table table-bordered">
                 <thead>
                     <th>Sarlavha</th>
+                    <th>Short</th>
                     <th width="300px">Amallar</th>
                 </thead>
 
@@ -23,13 +32,16 @@
                     @foreach ($posts as $post)
                     <tr>
                         <td>{{$post->title}}</td>
+                        <td>{{$post->short}}</td>
                         <td>
-                            <a class="btn btn-primary" href="{{ route('posts.edit',['id' => $post->id])}}">O'zgartirish</a>
+                            <a href="{{ route('admin.posts.show', $post->id)}}" class="btn text-white btn-success btn-sm float-left"><i class="fa fa-eye"></i></a>
+                            <a class="btn btn-sm btn-primary float-left" href="{{ route('admin.posts.edit',['id' => $post->id])}}">
+                                <i class="fa fa-edit"></i></a>
 
-                            <form method="POST" action="{{route('posts.destroy', ['id' => $post->id])}}">
+                            <form method="POST" action="{{route('admin.posts.destroy', ['id' => $post->id])}}">
                                 @csrf
                                 @method('delete')
-                                <button class="btn btn-danger">O'chirish</button>
+                                <button class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></button>
                             </form>
                         </td>
                     </tr>

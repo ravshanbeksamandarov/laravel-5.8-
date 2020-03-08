@@ -41,12 +41,12 @@ class PostController extends Controller
         $request->validate([
             'title' => 'required',
             'short' => 'required',
-            'content' => 'required',
+            'content' => 'required|min:50',
         ]);
 
         Post::create($request->post());
 
-        return redirect()->route('posts.index');
+        return redirect()->route('admin.posts.index')->with(['success' => "Xabar qo'shildi!"]);
 
     }
 
@@ -58,7 +58,9 @@ class PostController extends Controller
      */
     public function show($id)
     {
-        //
+        $post = Post::findOrFail($id);
+
+        return view('admin.posts.show', compact('post'));
     }
 
     /**
@@ -69,7 +71,10 @@ class PostController extends Controller
      */
     public function edit($id)
     {
-        return $id;
+         $post = Post::findOrFail($id);
+        // dd($update);
+
+         return view("admin.posts.edit",compact('post'));
     }
 
     /**
@@ -81,7 +86,19 @@ class PostController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $post = Post::findOrFail($id);
+
+        $request->validate([
+            'title' => 'required',
+            'short' => 'required',
+            'content' => 'required|min:50'
+        ]);
+        $post->update([
+            'title' => $request->post('title'),
+            'short' => $request->post('short'),
+            'content' => $request->post('content')
+        ]);
+        return redirect()->route('admin.posts.index')->with(['success' => "Xabar yangilandi!"]);
     }
 
     /**
@@ -96,6 +113,6 @@ class PostController extends Controller
 
         $model->delete();
 
-        return redirect()->route('posts.index');
+        return redirect()->route('admin.posts.index')->with(['delete' => "Xabar o'chirildi"]);
     }
 }

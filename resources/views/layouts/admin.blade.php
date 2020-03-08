@@ -10,8 +10,8 @@
     <meta name="description" content="Sufee Admin - HTML5 Admin Template">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="apple-touch-icon" href="apple-icon.png">
-    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="apple-touch-icon" href="/dashboard/apple-icon.png">
+    <link rel="shortcut icon" href="/dashboard/favicon.ico">
 
     <link rel="stylesheet" href="/dashboard/vendors/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="/dashboard/vendors/font-awesome/css/font-awesome.min.css">

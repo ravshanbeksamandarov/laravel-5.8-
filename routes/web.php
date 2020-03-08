@@ -12,7 +12,7 @@
 */
 
 use App\Http\Controllers\SiteController;
-
+use Illuminate\Support\Facades\Route;
     Route::get('/', 'SiteController@home')->name('home');
 
     //Catalog/Shop
@@ -60,9 +60,10 @@ use App\Http\Controllers\SiteController;
 
     //Admin routes
 
-    Route::prefix('admin')->group(function()
+    Route::namespace('Admin')->name('admin.')->prefix('admin')->group(function()
     {
-        Route::resource('posts', 'Admin\PostController');
+        Route::resource('posts', 'PostController');
     });
+
 
 
