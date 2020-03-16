@@ -50,7 +50,7 @@ class PostController extends Controller
             'title' => $request->title,
             'short' => $request->short,
             'content' => $request->content,
-            'img' => $request->$name
+            'img' => $name
         ];
         Post::create($data);
 
@@ -111,7 +111,7 @@ class PostController extends Controller
             'title' => $request->post('title'),
             'short' => $request->post('short'),
             'content' => $request->post('content'),
-            'img' => $request->post('img')
+            'img' => $name
         ]);
         return redirect()->route('admin.posts.index')->with(['success' => "Xabar yangilandi!"]);
     }

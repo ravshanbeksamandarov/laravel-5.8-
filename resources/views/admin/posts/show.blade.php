@@ -13,7 +13,6 @@
         <div class="card-body">
             <h3>{{$post->title}}</h3>
             <br>
-            <p>{{$post->img}}</p>
             <b>Qisqacha:</b>
             <p>
                 {{$post->short}}

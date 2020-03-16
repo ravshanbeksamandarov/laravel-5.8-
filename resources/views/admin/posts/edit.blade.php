@@ -37,7 +37,7 @@
                     <textarea name="content" class="form-control"  id="" cols="30" rows="10">{{ $post->content }}</textarea>
                 </div>
                 <div>
-                    <label for="">Rasm</label>
+                    <label for="">Rasmni tanlang</label><br>
                     <input type="file" name="img" value="{{ $post->img }}">
                 </div>
                 <button type="submit" class="btn btn-success">O'zgartirish</button>
