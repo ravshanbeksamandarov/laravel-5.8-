@@ -30,9 +30,7 @@
 						  {{-- <div><a href="#">{{$post->created_at->format('M')}}</a></div>
 						  <div><a href="#">{{$post->created_at->format('Y')}}</a></div> --}}
 						  <div>
-							  {{-- <ul class="blog-info-link"> --}}
-							<li><i class="fa fa-eye"></i>{{$post->views}}</li>
-							</ul>
+							  <a class="btn btn-sm btn-primary" href="#"><i class="fa fa-eye"></i>{{$post->views}}</a>
 						  </div>
 
 

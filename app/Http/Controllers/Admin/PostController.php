@@ -42,9 +42,20 @@ class PostController extends Controller
             'title' => 'required',
             'short' => 'required',
             'content' => 'required|min:50',
+            'img' => 'required|mimes:jpeg,bmp,png,jpg'
         ]);
 
-        Post::create($request->post());
+        $name = $request->file('img')->store('pictures_path', ['disk' => 'public']);
+        $data = [
+            'title' => $request->title,
+            'short' => $request->short,
+            'content' => $request->content,
+            'img' => $request->$name
+        ];
+        Post::create($data);
+
+       // Post::create($request->post());
+
 
         return redirect()->route('admin.posts.index')->with(['success' => "Xabar qo'shildi!"]);
 
@@ -91,12 +102,16 @@ class PostController extends Controller
         $request->validate([
             'title' => 'required',
             'short' => 'required',
-            'content' => 'required|min:50'
+            'content' => 'required|min:50',
+            'img' => 'required|mimes:jpeg,bmp,png,jpg'
         ]);
+        $name = $request->file('img')->store('pictures_path', ['disk' => 'public']);
+
         $post->update([
             'title' => $request->post('title'),
             'short' => $request->post('short'),
-            'content' => $request->post('content')
+            'content' => $request->post('content'),
+            'img' => $request->post('img')
         ]);
         return redirect()->route('admin.posts.index')->with(['success' => "Xabar yangilandi!"]);
     }

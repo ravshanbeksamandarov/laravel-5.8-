@@ -21,7 +21,7 @@
 
             </div>
         @endif
-            <form method="POST" action="{{ route('admin.posts.store') }}">
+            <form method="POST" enctype="multipart/form-data" action="{{ route('admin.posts.store') }}">
               @csrf
                 <div class="form-group">
                     <label for="">Sarlavha</label>
@@ -34,6 +34,10 @@
                 <div class="form-group">
                     <label for="">Maqola</label>
                     <textarea name="content" class="form-control" id="" cols="30" rows="10"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="">Rasmni tanlang</label> <br>
+                        <input type="file" name="img">
                 </div>
                 <button type="submit" class="btn btn-success">Saqlash</button>
             </form>

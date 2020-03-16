@@ -11,6 +11,7 @@
 |
 */
 
+use App\Http\Controllers\FileController;
 use App\Http\Controllers\SiteController;
 use Illuminate\Support\Facades\Route;
     Route::get('/', 'SiteController@home')->name('home');
@@ -65,5 +66,7 @@ use Illuminate\Support\Facades\Route;
         Route::resource('posts', 'PostController');
     });
 
+    // Route::get('file', 'FileController@index')->name('file.form');
+    // Route::post('file', 'FileController@store')->name('file.store');
 
 

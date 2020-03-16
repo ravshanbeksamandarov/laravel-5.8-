@@ -11,10 +11,11 @@
         </h6>
         </div>
         <div class="card-body">
+
             @if (session()->has('success'))
-                <div class="alert alert-success">
-                    {{ session()->get('success') }}
-                </div>
+            <div class="alert alert-success">
+                {{ session()->get('success') }}
+            </div>
             @endif
             @if (session()->has('delete'))
             <div class="alert alert-danger">
@@ -25,7 +26,7 @@
                 <thead>
                     <th>Sarlavha</th>
                     <th>Short</th>
-                    <th width="300px">Amallar</th>
+                    <th width="200px">Amallar</th>
                 </thead>
 
                 <tbody>
@@ -47,7 +48,6 @@
                     </tr>
                     @endforeach
                 </tbody>
-
             </table>
         </div>
     </div>
