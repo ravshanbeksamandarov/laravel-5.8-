@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Post;
-
+use Image;
 class PostController extends Controller
 {
     /**
@@ -45,14 +45,32 @@ class PostController extends Controller
             'img' => 'required|mimes:jpeg,bmp,png,jpg'
         ]);
 
-        $name = $request->file('img')->store('pictures_path', ['disk' => 'public']);
+        $name = $request->file('img')->store('posts', ['disk' => 'public']);
+
+        $full_path = storage_path('app/public/'.$name);
+        $full_thumb_path = storage_path('app/public/thumbs/'.$name);
+        $thumb = Image::make($full_path);
+
+        //Proporsiya bilan qirqib olish;
+        // $thumb->resize(300,300, function($constraint)
+        // {
+        //     $constraint->aspectRatio();
+        // })->save($full_thumb_path);
+
+        //Kvadrat qilib qirqib olish;
+        $thumb->fit(350, 350, function($constraint)
+        {
+            $constraint->aspectRatio();
+        })->save($full_thumb_path);
+
         $data = [
             'title' => $request->title,
             'short' => $request->short,
             'content' => $request->content,
-            'img' => $name
+            'img' => $name,
+            'thumb' => 'thumbs/'.$name
         ];
-        Post::create($data);
+         Post::create($data);
 
        // Post::create($request->post());
 
@@ -105,13 +123,23 @@ class PostController extends Controller
             'content' => 'required|min:50',
             'img' => 'required|mimes:jpeg,bmp,png,jpg'
         ]);
-        $name = $request->file('img')->store('pictures_path', ['disk' => 'public']);
+        $name = $request->file('img')->store('posts', ['disk' => 'public']);
+
+        $full_path = storage_path('app/public/'.$name);
+        $full_thumb_path = storage_path('app/public/thumbs/'.$name);
+        $thumb = Image::make($full_path);
+        //Kvadrat qilib qirqib olish;
+        $thumb->fit(350, 350, function($constraint)
+        {
+            $constraint->aspectRatio();
+        })->save($full_thumb_path);
 
         $post->update([
             'title' => $request->post('title'),
             'short' => $request->post('short'),
             'content' => $request->post('content'),
-            'img' => $name
+            'img' => $name,
+            'thumb' => 'thumbs/'.$name
         ]);
         return redirect()->route('admin.posts.index')->with(['success' => "Xabar yangilandi!"]);
     }

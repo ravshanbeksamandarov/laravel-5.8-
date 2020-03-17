@@ -68,5 +68,3 @@ use Illuminate\Support\Facades\Route;
 
     // Route::get('file', 'FileController@index')->name('file.form');
     // Route::post('file', 'FileController@store')->name('file.store');
-
-

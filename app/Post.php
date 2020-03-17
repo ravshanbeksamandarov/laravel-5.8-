@@ -7,6 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 class Post extends Model
 {
     public $table = 'posts';
-    
-    public $fillable = ['title', 'short', 'content', 'img', 'views'];
+
+    public $fillable = ['title', 'short', 'content', 'img', 'thumb', 'views'];
 }

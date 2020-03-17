@@ -24,6 +24,7 @@
         @endif
             <table class="table table-bordered">
                 <thead>
+                    <th>Rasm</th>
                     <th>Sarlavha</th>
                     <th>Short</th>
                     <th width="200px">Amallar</th>
@@ -32,6 +33,9 @@
                 <tbody>
                     @foreach ($posts as $post)
                     <tr>
+                        <td>
+                            <img class="img img-thumbnail" src="{{ '/storage/'.$post->thumb }}" alt="">
+                        </td>
                         <td>{{$post->title}}</td>
                         <td>{{$post->short}}</td>
                         <td>
