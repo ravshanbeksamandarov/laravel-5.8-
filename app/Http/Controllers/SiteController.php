@@ -46,8 +46,10 @@ class SiteController extends Controller
 
     public function blog()
     {
-        $posts = Post::orderBy('id', 'DESC')->paginate(2);
+        // $posts = Post::orderBy('id', 'DESC')->paginate(3);
+        $posts = Post::latest()->paginate(3);
         $links = $posts->links();
+
         return view('blog', compact('posts', 'links'));
     }
 
@@ -55,8 +57,13 @@ class SiteController extends Controller
     {
         $post = Post::findOrFail($id);
 
+        $post->increment('views');
+
+        $most_viewed = Post::orderBy('views', 'DESC')->limit(3)->get();
+
         return view('blogs', [
-            'post' => $post
+            'post' => $post,
+            'most_posts' => $most_viewed
             ]);
     }
 

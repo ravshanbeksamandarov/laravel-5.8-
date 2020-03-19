@@ -2,7 +2,6 @@
 
 @section('content')
 
-
 <div class="col-md-12">
     <div class="card">
         <div class="card-header py-3">
@@ -13,6 +12,9 @@
         <div class="card-body">
             <h3>{{$post->title}}</h3>
             <br>
+            <p>
+                <img class="img img-thumbnail" src="{{ '/storage/'.$post->thumb }}" alt="{{ $post->title }}">
+            </p>
             <b>Qisqacha:</b>
             <p>
                 {{$post->short}}

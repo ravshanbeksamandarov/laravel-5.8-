@@ -36,10 +36,14 @@
                     <label for="">Maqola</label>
                     <textarea name="content" class="form-control"  id="" cols="30" rows="10">{{ $post->content }}</textarea>
                 </div>
-                <div>
-                    <label for="">Rasmni tanlang</label><br>
-                    <input type="file" name="img" value="{{ $post->img }}">
+                <div class="form-group">
+                    <img src="/storage/{{ $post->thumb }}" width="200px" class="img img-thumbnail" alt="">
                 </div>
+                <div class="form-group">
+                    <label for="">Rasmni tanlang</label><br>
+                    <input class="form-control" type="file" name="img" value="{{ $post->img }}">
+                </div>
+                <br>
                 <button type="submit" class="btn btn-success">O'zgartirish</button>
             </form>
         </div>

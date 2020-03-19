@@ -34,7 +34,7 @@
                     @foreach ($posts as $post)
                     <tr>
                         <td>
-                            <img class="img img-thumbnail" src="{{ '/storage/'.$post->thumb }}" alt="">
+                        <img class="img img-thumbnail" src="{{ '/storage/'.$post->thumb }}" alt="{{ $post->title }}">
                         </td>
                         <td>{{$post->title}}</td>
                         <td>{{$post->short}}</td>

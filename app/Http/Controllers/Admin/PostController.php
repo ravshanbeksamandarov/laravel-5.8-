@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Post;
 use Image;
+use Illuminate\Support\Facades\Storage;
 class PostController extends Controller
 {
     /**
@@ -123,23 +124,34 @@ class PostController extends Controller
             'content' => 'required|min:50',
             'img' => 'required|mimes:jpeg,bmp,png,jpg'
         ]);
-        $name = $request->file('img')->store('posts', ['disk' => 'public']);
+        if ($request->file('img')) {
 
-        $full_path = storage_path('app/public/'.$name);
-        $full_thumb_path = storage_path('app/public/thumbs/'.$name);
-        $thumb = Image::make($full_path);
-        //Kvadrat qilib qirqib olish;
-        $thumb->fit(350, 350, function($constraint)
-        {
-            $constraint->aspectRatio();
-        })->save($full_thumb_path);
+            Storage::disk('public')->delete([
+                $post->img,
+                $post->thumb
+            ]);
 
+            $name = $request->file('img')->store('posts', ['disk' => 'public']);
+            $thumb_name = 'thumbs/'.$name;
+
+            $full_path = storage_path('app/public/'.$name);
+            $full_thumb_path = storage_path('app/public/'.$thumb_name);
+            $thumb = Image::make($full_path);
+            //Kvadrat qilib qirqib olish;
+            $thumb->fit(350, 350, function ($constraint) {
+                $constraint->aspectRatio();
+            })->save($full_thumb_path);
+        }
+        else {
+            $name = $post->img;
+            $thumb_name = $post->thumb;
+        }
         $post->update([
             'title' => $request->post('title'),
             'short' => $request->post('short'),
             'content' => $request->post('content'),
             'img' => $name,
-            'thumb' => 'thumbs/'.$name
+            'thumb' => $thumb_name
         ]);
         return redirect()->route('admin.posts.index')->with(['success' => "Xabar yangilandi!"]);
     }

@@ -6,12 +6,12 @@
       <div class="container">
         <div class="row no-gutters slider-text align-items-center justify-content-center">
           <div class="col-md-9 ftco-animate text-center">
-          	<p class="breadcrumbs"><span class="mr-2"><a href="/">Home</a></span> <span>Blog</span></p>
-            <h1 class="mb-0 bread">Blog</h1>
+          	<p class="breadcrumbs"><span class="mr-2"><a href="/">Home</a></span> <span>News</span></p>
+            <h1 class="mb-0 bread">News</h1>
           </div>
         </div>
       </div>
-    </div>
+</div>
 
     <section class="ftco-section ftco-degree-bg">
       <div class="container">
@@ -22,7 +22,7 @@
 							<div class="col-md-12 d-flex ftco-animate">
 								{{-- d-md-flex --}}
 		            <div class="blog-entry align-self-stretch d-md-flex">
-		              <p class="block-20" style="background-image: url({{$post->img}});">
+		              <p class="block-20" style="background-image: url(/storage/{{$post->thumb}});">
 					  </p>
 		              <div class="text d-block pl-md-4">
 		              	<div class="meta mb-3">
@@ -30,13 +30,13 @@
 						  {{-- <div><a href="#">{{$post->created_at->format('M')}}</a></div>
 						  <div><a href="#">{{$post->created_at->format('Y')}}</a></div> --}}
 						  <div>
-							  <a class="btn btn-sm btn-primary" href="#"><i class="fa fa-eye"></i>{{$post->views}}</a>
+							  <a class="btn btn-sm btn-primary" href="#"><i class="icon-eye"></i>{{$post->views}}</a>
 						  </div>
 
 
 						  <h3 class="heading">{{ $post->title }}</h3>
 						  <p>{{ $post->short }}</p>
-						  <p><a href="/blogs" class="btn btn-primary py-2 px-3">Read more</a></p>
+						  <p><a href="{{ route('Blog-single', $post->id) }}" class="btn btn-primary py-2 px-3">Read more</a></p>
 
 						  {{-- <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div> --}}
 						  </div>
@@ -70,6 +70,21 @@
                 <li><a href="#">Lifestyle <span>(140)</span></a></li>
               </ul>
             </div>
+            <div class="sidebar-box ftco-animate">
+                <h3 class="heading">Recent Blog</h3>
+                <div class="block-21 mb-4 d-flex">
+                  <a class="blog-img mr-4" style="background-image: url(images/image_1.jpg);"></a>
+                  <div class="text">
+                    <h3 class="heading-1"><a href="#">Even the all-powerful Pointing has no control about the blind texts</a></h3>
+                    <div class="meta">
+                      <div><a href="#"><span class="icon-calendar"></span> April 27, 2019</a></div>
+                      <div><a href="#"><span class="icon-person"></span> Admin</a></div>
+                      <div><a href="#"><span class="icon-chat"></span> 19</a></div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
           </div>
         </div>
       </div>
