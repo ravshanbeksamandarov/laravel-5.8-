@@ -50,7 +50,9 @@ class SiteController extends Controller
         $posts = Post::latest()->paginate(3);
         $links = $posts->links();
 
-        return view('blog', compact('posts', 'links'));
+        $mosts = Post::orderBy('views', 'DESC')->limit(3)->get();
+
+        return view('blog', compact('posts', 'links', 'mosts'));
     }
 
     public function blogs($id)

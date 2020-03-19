@@ -72,18 +72,24 @@
             </div>
             <div class="sidebar-box ftco-animate">
                 <h3 class="heading">Recent Blog</h3>
-                <div class="block-21 mb-4 d-flex">
-                  <a class="blog-img mr-4" style="background-image: url(images/image_1.jpg);"></a>
-                  <div class="text">
-                    <h3 class="heading-1"><a href="#">Even the all-powerful Pointing has no control about the blind texts</a></h3>
-                    <div class="meta">
-                      <div><a href="#"><span class="icon-calendar"></span> April 27, 2019</a></div>
-                      <div><a href="#"><span class="icon-person"></span> Admin</a></div>
-                      <div><a href="#"><span class="icon-chat"></span> 19</a></div>
-                    </div>
-                  </div>
-                </div>
+                @foreach ($mosts as $most)
 
+                <div class="block-21 mb-4 d-flex">
+                    <a class="blog-img mr-4" style="background-image: url(/storage/{{ $most->thumb }});"></a>
+                    <div class="text">
+                        <h3 class="heading-1">
+                        <a href="{{ route('Blog-single', $most->id) }}">
+                        <h5>{{ $most->title }}</h5>
+                            </a>
+                        </h3>
+                        <div class="meta">
+                        <div><a href="#"><span class="icon-calendar"></span> {{ $most->created_at->format('H:i d/m/Y') }} </a></div>
+                            <div><a href="#"><span class="icon-person"></span> Admin</a></div>
+                        <div><a href="#"><span class="icon-chat"></span> {{ $most->views }}</a></div>
+                        </div>
+                    </div>
+                </div>
+                @endforeach
               </div>
           </div>
         </div>
