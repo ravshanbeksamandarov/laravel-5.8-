@@ -1,4 +1,4 @@
-@extends('layouts.app', ['title' => "Parolni tiklash"])
+@extends('layouts.admin', ['title' => "Parolni tiklash"])
 
 @section('content')
 <div class="container">
