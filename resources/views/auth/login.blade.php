@@ -54,7 +54,7 @@
                         <span class="focus-input100"></span>
 					</div>
 
-					<div class="wrap-input100 validate-input m-b-18" data-validate = "Password is required">
+					<div class="wrap-input100 validate-input m-b-18" data-validate="Password is required">
 						<span class="label-input100">Password</span>
 						{{-- <input class="input100" type="password" name="pass" > --}}
                         <input id="password" class="input100" type="password" placeholder="Enter password" @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
@@ -64,8 +64,8 @@
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
+                                <span class="focus-input100"></span>
                             </div>
-                        <span class="focus-input100"></span>
 
                         <div class="flex-sb-m w-full p-b-30">
                             <div class="contact100-form-checkbox">
