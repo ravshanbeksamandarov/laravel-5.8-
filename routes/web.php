@@ -14,6 +14,7 @@
 use App\Http\Controllers\FileController;
 use App\Http\Controllers\SiteController;
 use Illuminate\Support\Facades\Route;
+
     Route::get('/', 'SiteController@home')->name('home');
 
     //Catalog/Shop
@@ -61,10 +62,18 @@ use Illuminate\Support\Facades\Route;
 
     //Admin routes
 
-    Route::namespace('Admin')->name('admin.')->prefix('admin')->group(function()
-    {
+    Route::namespace('Admin')->middleware('auth')->name('admin.')->prefix('admin')->group(function(){
+        Route::get('/', function(){
+            return redirect()->route('admin.posts.index');
+        });
         Route::resource('posts', 'PostController');
     });
 
     // Route::get('file', 'FileController@index')->name('file.form');
     // Route::post('file', 'FileController@store')->name('file.store');
+
+Auth::routes([
+    // 'register' => true
+]);
+
+//Route::get('/home', 'HomeController@index')->name('home');
