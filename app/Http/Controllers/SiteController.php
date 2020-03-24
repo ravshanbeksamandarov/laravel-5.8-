@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Post;
-
+use App\Feedback;
 class SiteController extends Controller
 {
     public function home()
@@ -74,11 +74,6 @@ class SiteController extends Controller
         return view('card');
     }
 
-    public function contact()
-    {
-        return view('contact');
-    }
-
     public function search(Request $request)
     {
         $key = $request->get('key');
@@ -95,4 +90,29 @@ class SiteController extends Controller
         return view('search', compact('results', 'links'));
     }
 
+
+    public function contact()
+    {
+        return view('contact');
+    }
+
+    public function feedbackStore(Request $request)
+    {
+        $request->validate([
+            'name'    => 'required|min:3|max:100',
+            'email'   => 'required|email|',
+            'subject' => 'required|min:10|max:128',
+            'message' => 'required|max:2048'
+        ]);
+
+        Feedback::create([
+            'name'    => $request->post('name'),
+            'email'   => $request->post('email'),
+            'subject' => $request->post('subject'),
+            'message' => $request->post('message')
+        ]);
+        return redirect()
+                ->route('contact')
+                ->with('success', "Xabar uchun raxmat! Tez orada sizga javob qaytaramiz.");
+    }
 }

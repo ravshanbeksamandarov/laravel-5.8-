@@ -39,25 +39,41 @@
           </div>
         </div>
         <div class="row block-9">
-          <div class="col-md-6 order-md-last d-flex">
-            <form action="#" class="bg-white p-5 contact-form">
+          <div class="col-md-6 order-md-last">
+              @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+              @endif
+              @if (session()->has('success'))
+                    <div class="alert alert-success">
+                        {{ session()->get('success') }}
+                    </div>
+              @endif
+            <form action="{{ route('contact.store') }}" method="POST" class="bg-white p-5 contact-form">
+                @csrf
               <div class="form-group">
-                <input type="text" class="form-control" placeholder="Your Name">
+                <input value="{{ old('name') }}" name="name" type="text" class="form-control" placeholder="Your Name">
               </div>
               <div class="form-group">
-                <input type="text" class="form-control" placeholder="Your Email">
+              <input value="{{ old('email') }}" name="email" type="email" class="form-control" placeholder="Your Email">
               </div>
               <div class="form-group">
-                <input type="text" class="form-control" placeholder="Subject">
+                <input value="{{ old('subject') }}" name="subject" type="text" class="form-control" placeholder="Subject">
               </div>
               <div class="form-group">
-                <textarea name="" id="" cols="30" rows="7" class="form-control" placeholder="Message"></textarea>
+                <textarea name="message" id="" cols="30" rows="7" class="form-control" placeholder="Message">{{ old('message') }}</textarea>
               </div>
               <div class="form-group">
-                <input type="submit" value="Send Message" class="btn btn-primary py-3 px-5">
+                <button type="submit" class="btn btn-primary py-3 px-5">Send Message
+                </button>
               </div>
             </form>
-          
+
           </div>
 
           <div class="col-md-6 d-flex">
@@ -65,6 +81,6 @@
           </div>
         </div>
       </div>
-    </section> 
-   
+    </section>
+
 @endsection

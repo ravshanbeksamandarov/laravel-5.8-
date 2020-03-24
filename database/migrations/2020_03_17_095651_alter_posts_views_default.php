@@ -13,10 +13,10 @@ class AlterPostsViewsDefault extends Migration
      */
     public function up()
     {
-        Schema::tabel('posts', function(Blueprint $table)
-        {
-            $table->integer('views')->default(0)->change();
-        });
+        // Schema::tabel('posts', function(Blueprint $table)
+        // {
+        //     //$table->integer('views')->default(0)->change();
+        // });
     }
 
     /**

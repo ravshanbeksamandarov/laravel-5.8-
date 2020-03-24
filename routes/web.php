@@ -47,14 +47,12 @@ use App\Http\Controllers\SiteController;
     //Blog
 
     Route::get('/blog', 'SiteController@blog')->name('Blog');
-
-    //Blog-single
-
     Route::get('/blog/{id}', 'SiteController@blogs')->name('Blog-single');
 
     //Contact
 
-    Route::get('/contact', 'SiteController@contact')->name('Contact');
+    Route::get('/contact', 'SiteController@contact')->name('contact');
+    Route::post('/contact', 'SiteController@feedbackStore')->name('contact.store');
 
     //Search
 
