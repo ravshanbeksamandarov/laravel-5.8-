@@ -13,7 +13,7 @@
 
 use App\Http\Controllers\FileController;
 use App\Http\Controllers\SiteController;
-use Illuminate\Support\Facades\Route;
+ use Illuminate\Support\Facades\Route;
 
     Route::get('/', 'SiteController@home')->name('home');
 
@@ -56,6 +56,10 @@ use Illuminate\Support\Facades\Route;
 
     Route::get('/contact', 'SiteController@contact')->name('Contact');
 
+    //Search
+
+    Route::get('/search', 'SiteController@search')->name('search');
+
     //Card
 
     Route::get('/card', 'SiteController@card')->name('Cart');
@@ -73,7 +77,7 @@ use Illuminate\Support\Facades\Route;
     // Route::post('file', 'FileController@store')->name('file.store');
 
 Auth::routes([
-    // 'register' => true
+     'register' => true
 ]);
 
 //Route::get('/home', 'HomeController@index')->name('home');

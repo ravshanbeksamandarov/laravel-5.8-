@@ -53,6 +53,9 @@
                     @endforeach
                 </tbody>
             </table>
+            <div class="blog-pagination justify-content-center d-flex">
+                {{ $links }}
+            </div>
         </div>
     </div>
 </div>

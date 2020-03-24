@@ -52,24 +52,24 @@
             </div>
             <div class="sidebar-box ftco-animate">
               <h3 CLASS="heading">Recent Blog</h3>
-              @foreach ($most_posts as $most)
-
-              <div class="block-21 mb-4 d-flex">
-                <a class="blog-img mr-4" style="background-image: url(/storage/{{ $most->thumb }});"></a>
-                <div class="text">
-                <h5 class="heading-1">
-                    <a href="{{route('Blog-single', $most->id)}}">
-                        <h5>{{ $most->title }}</h5>
-                    </a>
-                </h5>
-                    <div class="meta">
-                        <div><a href="#"><span class="icon-calendar"></span> {{ $most->created_at->format('H:i d/m/Y') }}</a></div>
-                        <div><a href="#"><span class="icon-person"></span> Admin</a></div>
-                    <div><a href="#"><span class="icon-eye"></span> {{ $most->views }}</a></div>
+              @foreach ($most_posts as $post)
+                <div class="block-21 mb-4 d-flex">
+                    <a class="blog-img mr-4" style="background-image: url(/storage/{{ $post->thumb }});"></a>
+                    <div class="text">
+                    <h5 class="heading-1">
+                        <a href="{{route('Blog-single', $post->id)}}">
+                            <h5>{{ $post->title }}</h5>
+                        </a>
+                    </h5>
+                        <div class="meta">
+                            <div><a href="#"><span class="icon-calendar"></span> {{ $post->created_at->format('H:i d/m/Y') }}</a></div>
+                            <div><a href="#"><span class="icon-person"></span> Admin</a></div>
+                        <div><a href="#"><span class="icon-eye"></span> {{ $post->views }}</a></div>
+                        </div>
                     </div>
                 </div>
-            </div>
-            @endforeach
+
+              @endforeach
             </div>
           </div>
         </div>

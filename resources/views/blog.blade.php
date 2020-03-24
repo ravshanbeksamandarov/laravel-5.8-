@@ -17,32 +17,9 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-8 order-lg-last ftco-animate">
-						<div class="row">
-							@foreach ( $posts as $post )
-							<div class="col-md-12 d-flex ftco-animate">
-								{{-- d-md-flex --}}
-		            <div class="blog-entry align-self-stretch d-md-flex">
-		              <p class="block-20" style="background-image: url(/storage/{{$post->thumb}});">
-					  </p>
-		              <div class="text d-block pl-md-4">
-		              	<div class="meta mb-3">
-						  <div><a href="#">{{$post->created_at->format('d.M.Y')}}</a></div>
-						  {{-- <div><a href="#">{{$post->created_at->format('M')}}</a></div>
-						  <div><a href="#">{{$post->created_at->format('Y')}}</a></div> --}}
-						  <div>
-							  <a class="btn btn-sm btn-primary" href="#"><i class="icon-eye"></i>{{$post->views}}</a>
-						  </div>
-
-
-						  <h3 class="heading">{{ $post->title }}</h3>
-						  <p>{{ $post->short }}</p>
-						  <p><a href="{{ route('Blog-single', $post->id) }}" class="btn btn-primary py-2 px-3">Read more</a></p>
-
-						  {{-- <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div> --}}
-						  </div>
-					</div>
-				</div>
-			</div>
+				<div class="row">
+					@foreach ( $posts as $post )
+                        @include('parts._blog-item', ['post' => $post])
 					@endforeach
 
 					<div style="margin-left:150px" class="blog-pagination justify-content-center d-flex">
@@ -51,25 +28,8 @@
 		          		</div>
           </div> <!-- .col-md-8 -->
           <div class="col-lg-4 sidebar ftco-animate">
-            <div class="sidebar-box">
-              <form action="#" class="search-form">
-                <div class="form-group">
-                  <span class="icon ion-ios-search"></span>
-                  <input type="text" class="form-control" placeholder="Type a keyword and hit enter">
-                </div>
-              </form>
-            </div>
-            <div class="sidebar-box ftco-animate">
-            	<h3 class="heading">Categories</h3>
-              <ul class="categories">
-                <li><a href="#">Shoes <span>(12)</span></a></li>
-                <li><a href="#">Men's Shoes <span>(22)</span></a></li>
-                <li><a href="#">Women's <span>(37)</span></a></li>
-                <li><a href="#">Accessories <span>(42)</span></a></li>
-                <li><a href="#">Sports <span>(14)</span></a></li>
-                <li><a href="#">Lifestyle <span>(140)</span></a></li>
-              </ul>
-            </div>
+              @include('parts._sidebar')
+
             <div class="sidebar-box ftco-animate">
                 <h3 class="heading">Recent Blog</h3>
                 @foreach ($mosts as $most)

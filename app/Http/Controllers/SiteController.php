@@ -34,11 +34,6 @@ class SiteController extends Controller
         return view('checkout');
     }
 
-    public function contact()
-    {
-        return view('contact');
-    }
-
     public function about()
     {
         return view('about');
@@ -77,6 +72,27 @@ class SiteController extends Controller
     public function card()
     {
         return view('card');
+    }
+
+    public function contact()
+    {
+        return view('contact');
+    }
+
+    public function search(Request $request)
+    {
+        $key = $request->get('key');
+        $key = '%'.trim($key).'%';
+        $results = Post::where('title', 'LIKE', $key)
+                   ->orWhere('short', 'LIKE', $key)
+                   ->orWhere('content', 'LIKE', $key)
+                   ->paginate(5);
+
+      //  dd($results->toSql());
+
+        $links = $results->links();
+
+        return view('search', compact('results', 'links'));
     }
 
 }
