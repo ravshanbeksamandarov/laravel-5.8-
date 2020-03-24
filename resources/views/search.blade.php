@@ -27,14 +27,14 @@
                 @include('parts._blog-item', ['post' => $post])
             @endforeach
 
-					<div style="margin-left:300px" class="blog-pagination justify-content-center d-flex">
+					<div style="margin-left:150px" class="blog-pagination justify-content-center d-flex">
 						{{ $links }}
 					</div>
 		    </div>
           </div> <!-- .col-md-8 -->
           @include('parts._sidebar')
         </div>
-        
+
       </div>
     </section>
 

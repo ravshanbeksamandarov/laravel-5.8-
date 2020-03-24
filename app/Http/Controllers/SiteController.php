@@ -81,7 +81,7 @@ class SiteController extends Controller
         $results = Post::where('title', 'LIKE', $key)
                    ->orWhere('short', 'LIKE', $key)
                    ->orWhere('content', 'LIKE', $key)
-                   ->paginate(5);
+                   ->paginate(3);
 
       //  dd($results->toSql());
 
