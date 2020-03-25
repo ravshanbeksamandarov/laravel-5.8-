@@ -8,7 +8,7 @@
         type="submit">Search</button>
     </form>
 </aside>
-<div class="col-lg-4 sidebar ftco-animate">
+{{-- <div class="col-lg-4 sidebar ftco-animate"> --}}
 
     <div class="sidebar-box ftco-animate">
             <h3 class="heading">Categories</h3>
@@ -22,6 +22,6 @@
         </ul>
     </div>
 
-</div>
+{{-- </div> --}}
 
 

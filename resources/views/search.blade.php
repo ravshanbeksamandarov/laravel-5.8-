@@ -32,7 +32,9 @@
 					</div>
 		    </div>
           </div> <!-- .col-md-8 -->
-          @include('parts._sidebar')
+            <div class="col-lg-4 sidebar ftco-animate">
+                @include('parts._sidebar')
+            </div>
         </div>
 
       </div>
