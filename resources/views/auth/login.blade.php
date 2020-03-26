@@ -92,9 +92,6 @@
                             <button type="submit" class="login100-form-btn">
                                   {{ __('Login') }}
                             </button>
-                            <button type="submit" class="login100-form-btn">
-                               <a href="{{ route('register') }}"> {{ __('Register') }} </a>
-                          </button>
                         </div>
 
                     </form>

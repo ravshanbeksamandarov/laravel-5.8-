@@ -25,7 +25,7 @@
 					<div style="margin-left:150px" class="blog-pagination justify-content-center d-flex">
 						{{ $links }}
 					</div>
-		          		</div>
+		        </div>
           </div> <!-- .col-md-8 -->
           <div class="col-lg-4 sidebar ftco-animate">
               @include('parts._sidebar')

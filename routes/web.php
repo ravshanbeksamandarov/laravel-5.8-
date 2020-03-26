@@ -11,6 +11,7 @@
 |
 */
 
+use App\Http\Controllers\Admin\FeedbacksController;
 use App\Http\Controllers\FileController;
 use App\Http\Controllers\SiteController;
  use Illuminate\Support\Facades\Route;
@@ -67,8 +68,11 @@ use App\Http\Controllers\SiteController;
     Route::namespace('Admin')->middleware('auth')->name('admin.')->prefix('admin')->group(function(){
         Route::get('/', function(){
             return redirect()->route('admin.posts.index');
-        });
+        })->name('dashboard');
         Route::resource('posts', 'PostController');
+        Route::get('feedbacks', 'FeedbacksController@index')->name('feedbacks.index');
+        Route::get('feedbacks/{id}/show', 'FeedbacksController@show')->name('feedbacks.show');
+        Route::delete('feedbacks/{id}/delete', 'FeedbacksController@delete')->name('feedbacks.delete');
     });
 
     // Route::get('file', 'FileController@index')->name('file.form');

@@ -105,7 +105,7 @@ class PostController extends Controller
          $post = Post::findOrFail($id);
         // dd($update);
 
-         return view("admin.posts.edit",compact('post'));
+         return view("admin.posts.edit", compact('post'));
     }
 
     /**

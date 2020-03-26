@@ -39,35 +39,55 @@
 		            		<label for="country">State / Country</label>
 		            		<div class="select-wrap">
 		                  <div class="icon"><span class="ion-ios-arrow-down"></span></div>
-		                  <select name="" id="" class="form-control">
-		                  	<option value="">France</option>
-		                    <option value="">Italy</option>
-		                    <option value="">Philippines</option>
-		                    <option value="">South Korea</option>
-		                    <option value="">Hongkong</option>
-		                    <option value="">Japan</option>
-		                  </select>
-		                </div>
+                            <select name="" id="" class="form-control">
+                                <option value="">Uzbekistan</option>
+                                <option value="">France</option>
+                                <option value="">Italy</option>
+                                <option value="">Philippines</option>
+                                <option value="">South Korea</option>
+                                <option value="">Hongkong</option>
+                                <option value="">Japan</option>
+                            </select>
+		                    </div>
 		            	</div>
 		            </div>
 		            <div class="w-100"></div>
-		            <div class="col-md-6">
+		            <div class="col-md-12">
 		            	<div class="form-group">
 	                	<label for="streetaddress">Street Address</label>
 	                  <input type="text" class="form-control" placeholder="House number and street name">
 	                </div>
 		            </div>
-		            <div class="col-md-6">
+		            {{-- <div class="col-md-6">
 		            	<div class="form-group">
 	                  <input type="text" class="form-control" placeholder="Appartment, suite, unit etc: (optional)">
 	                </div>
-		            </div>
+		            </div> --}}
 		            <div class="w-100"></div>
 		            <div class="col-md-6">
 		            	<div class="form-group">
 	                	<label for="towncity">Town / City</label>
-	                  <input type="text" class="form-control" placeholder="">
-	                </div>
+	                        {{-- <input type="text" class="form-control" placeholder=""> --}}
+                            <div class="select-wrap">
+                                <div class="icon"><span class="ion-ios-arrow-down"></span></div>
+                                  <select name="" id="" class="form-control">
+                                      <option value="">Xorazm</option>
+                                      <option value="">Andijon</option>
+                                      <option value="">Buxoro</option>
+                                      <option value="">Farg'ona</option>
+                                      <option value="">Jizzax</option>
+                                      <option value="">Namangan</option>
+                                      <option value="">Navoiy</option>
+                                      <option value="">Qashqadaryo</option>
+                                      <option value="">Qoraqalpog'iston</option>
+                                      <option value="">Samarqand</option>
+                                      <option value="">Surxondaryo</option>
+                                      <option value="">Sirdaryo</option>
+                                      <option value="">Toshkent</option>
+                                      <option value="">Toshkent viloyati</option>
+                                  </select>
+                                  </div>
+                        </div>
 		            </div>
 		            <div class="col-md-6">
 		            	<div class="form-group">
@@ -164,8 +184,5 @@
         </div>
       </div>
     </section> <!-- .section -->
-		
-
-
 
 @endsection

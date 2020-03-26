@@ -10,6 +10,7 @@
             </h6>
         </div>
         <div class="card-body">
+        <table class="table table-striped">
             <h3>{{$post->title}}</h3>
             <br>
             <p>
@@ -27,6 +28,7 @@
             <p>
             {{$post->created_at->format('H:i d/m/Y')}}
             </p>
+        </table>
         </div>
     </div>
 </div>

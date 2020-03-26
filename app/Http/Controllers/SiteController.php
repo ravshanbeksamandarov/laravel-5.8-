@@ -101,7 +101,7 @@ class SiteController extends Controller
         $request->validate([
             'name'    => 'required|min:3|max:100',
             'email'   => 'required|email|',
-            'subject' => 'required|min:10|max:128',
+            'subject' => 'required|min:7|max:100',
             'message' => 'required|max:2048'
         ]);
 
