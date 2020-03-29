@@ -8,7 +8,7 @@
             <h6 class="m-0 font-weight-blod text-primary">
                 Maqolalar
             <a class="btn btn-sm btn-info float-right" href="{{ route('admin.posts.create') }}">Yangilik qo'shish</a>
-        </h6>
+            </h6>
         </div>
         <div class="card-body">
                 @include('admin.alerts.main')

@@ -138,7 +138,7 @@
                             <span class="mr-2 d-none d-lg-inline text-gray-600 small"><b>{{ auth()->user()->name }}</b></span>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                            <a class="dropdown-item" href="#">
+                            <a class="dropdown-item" href="{{ route('admin.profile.index') }}">
                               <i class="fa fa-user"></i>
                               Sozlash
                             </a>
@@ -207,13 +207,6 @@
 
         <!-- .content -->
          @yield('content')
-         <footer class="sticky-footer bg-white">
-            <div class="container my-auto">
-              <div class="copyright text-center my-auto">
-                <span>Copyright &copy; Your Website 2019</span>
-              </div>
-            </div>
-          </footer>
         </div><!-- /#right-panel -->
     <!-- Right Panel -->
 

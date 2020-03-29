@@ -12,6 +12,7 @@
 */
 
 use App\Http\Controllers\Admin\FeedbacksController;
+use App\Http\Controllers\Admin\ProfilController;
 use App\Http\Controllers\FileController;
 use App\Http\Controllers\SiteController;
  use Illuminate\Support\Facades\Route;
@@ -69,7 +70,16 @@ use App\Http\Controllers\SiteController;
         Route::get('/', function(){
             return redirect()->route('admin.posts.index');
         })->name('dashboard');
+
+        //Profile
+        Route::get('/profile', 'ProfileController@index')->name('profile.index');
+        Route::put('/profile/update', 'ProfileController@update')->name('profile.update');
+        Route::put('/profile/password', 'ProfileController@password')->name('profile.password');
+
+        //Posts
         Route::resource('posts', 'PostController');
+
+        //Feedback routes
         Route::get('feedbacks', 'FeedbacksController@index')->name('feedbacks.index');
         Route::get('feedbacks/{id}/show', 'FeedbacksController@show')->name('feedbacks.show');
         Route::delete('feedbacks/{id}/delete', 'FeedbacksController@delete')->name('feedbacks.delete');
@@ -81,5 +91,3 @@ use App\Http\Controllers\SiteController;
 Auth::routes([
      'register' => true
 ]);
-
-//Route::get('/home', 'HomeController@index')->name('home');
