@@ -9,12 +9,7 @@
             </h6>
         </div>
         <div class="card-body">
-
-            @if (session()->has('delete'))
-            <div class="alert alert-danger">
-                {{ session()->get('delete') }}
-            </div>
-            @endif
+                @include('admin.alerts.main')
             <table class="table table-bordered">
                 <thead>
                     <th>Nomi</th>

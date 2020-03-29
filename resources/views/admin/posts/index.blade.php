@@ -11,17 +11,7 @@
         </h6>
         </div>
         <div class="card-body">
-
-            @if (session()->has('success'))
-            <div class="alert alert-success">
-                {{ session()->get('success') }}
-            </div>
-            @endif
-            @if (session()->has('delete'))
-            <div class="alert alert-danger">
-                {{ session()->get('delete') }}
-            </div>
-        @endif
+                @include('admin.alerts.main')
             <table class="table table-bordered">
                 <thead>
                     <th>Rasm</th>
@@ -34,12 +24,13 @@
                     @foreach ($posts as $post)
                     <tr>
                         <td>
-                        <img class="img img-thumbnail" src="{{ '/storage/'.$post->thumb }}" alt="{{ $post->title }}">
+                        <img class="img img-thumbnail" width="90px" src="{{ '/storage/'.$post->thumb }}" alt="{{ $post->title }}">
                         </td>
                         <td>{{$post->title}}</td>
                         <td>{{$post->short}}</td>
                         <td>
-                            <a href="{{ route('admin.posts.show', $post->id)}}" class="btn text-white btn-success btn-sm float-left"><i class="fa fa-eye"></i></a>
+                            <a target="_blank" href="{{ route('Blog-single', $post->id)}}" class="btn text-white btn-success btn-sm float-left">
+                                <i class="fa fa-eye"></i></a>
                             <a class="btn btn-sm btn-primary float-left" href="{{ route('admin.posts.edit',['id' => $post->id])}}">
                                 <i class="fa fa-edit"></i></a>
 

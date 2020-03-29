@@ -1,6 +1,8 @@
 @php
+
     use App\Feedback;
     $new_messages = Feedback::unreaded()->get();
+
 @endphp
 <!doctype html>
 

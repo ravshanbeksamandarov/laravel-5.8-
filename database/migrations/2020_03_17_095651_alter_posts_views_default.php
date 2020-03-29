@@ -15,7 +15,7 @@ class AlterPostsViewsDefault extends Migration
     {
         // Schema::tabel('posts', function(Blueprint $table)
         // {
-        //     //$table->integer('views')->default(0)->change();
+        //     $table->integer('views')->default(0)->after('thumb');
         // });
     }
 

@@ -16,7 +16,8 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::latest()->paginate(3);
+        $page_size = env('ADMIN_PAGE_SIZE', 5);
+        $posts = Post::latest()->paginate($page_size);
         $links = $posts->links();
 
         return view('admin.posts.index', compact('posts', 'links'));
