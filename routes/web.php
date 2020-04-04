@@ -19,16 +19,16 @@ use App\Http\Controllers\SiteController;
 
     Route::get('/', 'SiteController@home')->name('home');
 
-    //Catalog/Shop
+    //Switch language
+    Route::get('lang/{lang}', 'SiteController@switchLang')->name('switch.lang');
 
+    //Catalog/Shop
     Route::get('/shop', 'SiteController@shop')->name('Shop');
 
     //Catalog/Single
-
     Route::get('/single', 'SiteController@single')->name('Single Product');
 
     //Catalog/Checkout
-
     Route::get('/checkout', 'SiteController@checkout')->name('Checkout');
 
     // //News
@@ -43,29 +43,23 @@ use App\Http\Controllers\SiteController;
     // })->name('news');
 
     //About us
-
     Route::get('/about', 'SiteController@about')->name('About');
 
     //Blog
-
     Route::get('/blog', 'SiteController@blog')->name('Blog');
     Route::get('/blog/{id}', 'SiteController@blogs')->name('Blog-single');
 
     //Contact
-
     Route::get('/contact', 'SiteController@contact')->name('contact');
     Route::post('/contact', 'SiteController@feedbackStore')->name('contact.store');
 
     //Search
-
     Route::get('/search', 'SiteController@search')->name('search');
 
     //Card
-
     Route::get('/card', 'SiteController@card')->name('Cart');
 
     //Admin routes
-
     Route::namespace('Admin')->middleware('auth')->name('admin.')->prefix('admin')->group(function(){
         Route::get('/', function(){
             return redirect()->route('admin.posts.index');

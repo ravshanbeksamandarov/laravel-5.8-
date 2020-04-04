@@ -7,7 +7,7 @@
     <div class="card">
         <div class="card-header py-3">
             <h6 class="m-0 font-weight-blod text-primary">
-                Maqola qo'shish
+                Yangilik qo'shish
             </h6>
         </div>
         <div class="card-body">

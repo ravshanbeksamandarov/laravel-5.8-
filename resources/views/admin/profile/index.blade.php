@@ -23,6 +23,7 @@
                         <input class="form-control" name="email" type="email" id="email" required value="{{ old('email', $user->email) }}">
                     </div>
                     <button type="submit" class="btn btn-primary">Saqlash</button>
+                    
                 </form>
             </div>
     </div>

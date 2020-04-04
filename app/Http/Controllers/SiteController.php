@@ -115,4 +115,10 @@ class SiteController extends Controller
                 ->route('contact')
                 ->with('success', "Xabar uchun raxmat! Tez orada sizga javob qaytaramiz.");
     }
+    public function switchLang($lang)
+    {
+        session()->put('lang', $lang);
+
+        return redirect()->back();
+    }
 }

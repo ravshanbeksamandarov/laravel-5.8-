@@ -76,8 +76,8 @@
 
           </div>
 
-          <div class="col-md-6 d-flex">
-          	<div id="map" class="bg-white"></div>
+           <div class="col-md-6 d-flex">
+            <div id="map" class="bg-white"></div>
           </div>
         </div>
       </div>

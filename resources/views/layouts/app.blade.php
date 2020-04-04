@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ app()->getLocale() }}">
   <head>
     <title>{{$title}}</title>
     <meta charset="utf-8">
@@ -40,8 +40,18 @@
 					    	<div class="icon mr-2 d-flex justify-content-center align-items-center"><span class="icon-paper-plane"></span></div>
 						    <span class="text">ravshanbek samandarov</span>
 					    </div>
-					    <div class="col-md-5 pr-4 d-flex topper align-items-center text-lg-right">
-						    <span class="text">3-5 Business days delivery &amp; Free Returns</span>
+					    <div class="col-md-3 pr-4 d-flex topper align-items-center text-lg-right">
+                                <div class="social_media_links">
+                                    <a class="{{ app()->getLocale() == 'uz' ? 'text-danger' : '' }}" href="{{ route('switch.lang', 'uz') }}">
+                                        O'zbekcha
+                                    </a>
+                                    <a class="{{ app()->getLocale() == 'ru' ? 'text-danger' : '' }}" href="{{ route('switch.lang', 'ru') }}">
+                                        Русский
+                                    </a>
+                                    <a class="{{ app()->getLocale() == 'en' ? 'text-danger' : '' }}" href="{{ route('switch.lang', 'en') }}">
+                                        English
+                                    </a>
+                                </div>
 					    </div>
 				    </div>
 			    </div>
@@ -57,19 +67,19 @@
 
 	      <div class="collapse navbar-collapse" id="ftco-nav">
 	        <ul class="navbar-nav ml-auto">
-	          <li class="nav-item active"><a href="/" class="nav-link">Home</a></li>
+	          <li class="nav-item active"><a href="/" class="nav-link">@lang("Bosh saxifa")</a></li>
 	          <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Catalog</a>
+              <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">@lang("Katalog")</a>
               <div class="dropdown-menu" aria-labelledby="dropdown04">
-              	<a class="dropdown-item" href="/shop">Shop</a>
-                <a class="dropdown-item" href="/single">Single Product</a>
-                <a class="dropdown-item" href="/card">Cart</a>
-                <a class="dropdown-item" href="/checkout">Checkout</a>
+              	<a class="dropdown-item" href="/shop">@lang("Xarid")</a>
+                {{-- <a class="dropdown-item" href="/single">Single Product</a> --}}
+                <a class="dropdown-item" href="/card">@lang("Korzina")</a>
+                <a class="dropdown-item" href="/checkout">@lang("Kassa")</a>
               </div>
             </li>
-	          <li class="nav-item"><a href="/about" class="nav-link">About</a></li>
-	          <li class="nav-item"><a href="/blog" class="nav-link">News</a></li>
-	          <li class="nav-item"><a href="/contact" class="nav-link">Contact</a></li>
+	          <li class="nav-item"><a href="/about" class="nav-link">@lang('Biz haqimizda')</a></li>
+	          <li class="nav-item"><a href="/blog" class="nav-link">@lang('Yangiliklar')</a></li>
+	          <li class="nav-item"><a href="/contact" class="nav-link">@lang("Bog`lanish")</a></li>
 			  <li class="nav-item cta cta-colored"><a href="/card" class="nav-link">
 			  <span class="icon-shopping_cart"></span>[2]</a></li>
 

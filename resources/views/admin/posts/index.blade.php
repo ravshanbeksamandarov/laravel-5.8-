@@ -6,7 +6,7 @@
     <div class="card">
         <div class="card-header py-3">
             <h6 class="m-0 font-weight-blod text-primary">
-                Maqolalar
+                Yangiliklar
             <a class="btn btn-sm btn-info float-right" href="{{ route('admin.posts.create') }}">Yangilik qo'shish</a>
             </h6>
         </div>

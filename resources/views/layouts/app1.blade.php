@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ app()->getLocale() }}">
   <head>
     <title>{{$title}}</title>
     <meta charset="utf-8">
@@ -41,7 +41,17 @@
 						    <span class="text">ravshanbeksamandarov@gmail.com</span>
 					    </div>
 					    <div class="col-md-5 pr-4 d-flex topper align-items-center text-lg-right">
-						    <span class="text">3-5 Business days delivery &amp; Free Returns</span>
+						    <div class="social_media_links">
+                                <a href="{{ route('switch.lang', 'uz') }}">
+                                    O'zbekcha
+                                </a>
+                                <a href="{{ route('switch.lang', 'ru') }}">
+                                    Русский
+                                </a>
+                                <a href="{{ route('switch.lang', 'en') }}">
+                                    English
+                                </a>
+                            </div>
 					    </div>
 				    </div>
 			    </div>
@@ -62,7 +72,7 @@
               <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Catalog</a>
               <div class="dropdown-menu" aria-labelledby="dropdown04">
               	<a class="dropdown-item" href="/shop">Shop</a>
-                <a class="dropdown-item" href="/single">Single Product</a>
+                {{-- <a class="dropdown-item" href="/single">Single Product</a> --}}
                 <a class="dropdown-item" href="/card">Cart</a>
                 <a class="dropdown-item" href="/checkout">Checkout</a>
               </div>

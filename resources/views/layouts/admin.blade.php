@@ -58,7 +58,7 @@
                     <h3 class="menu-title">Barcha bo'limlar</h3><!-- /.menu-title -->
 
                     <li class="nav-item {{ request()->is('admin/posts*') ? 'active' : '' }}">
-                        <a href="{{ route('admin.posts.index') }}"> <i class="menu-icon fa fa-tasks"></i>Maqolalar</a>
+                        <a href="{{ route('admin.posts.index') }}"> <i class="menu-icon fa fa-tasks"></i>Yangiliklar</a>
 
                     </li>
                     <li class="nav-item  {{ request()->is('admin/feedbacks*') ? 'active' : '' }}">
@@ -202,13 +202,11 @@
             </div>
 
 
-        </header><!-- /header -->
-        <!-- Header-->
+        </header>
 
-        <!-- .content -->
+
          @yield('content')
-        </div><!-- /#right-panel -->
-    <!-- Right Panel -->
+        </div>
 
     <script src="/dashboard/vendors/jquery/dist/jquery.min.js"></script>
     <script src="/dashboard/vendors/popper.js/dist/umd/popper.min.js"></script>
