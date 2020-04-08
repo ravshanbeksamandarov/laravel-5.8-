@@ -59,6 +59,9 @@ use App\Http\Controllers\SiteController;
     //Card
     Route::get('/card', 'SiteController@card')->name('Cart');
 
+    //Category and Posts relation
+    Route::get('/test', 'SiteController@test');
+
     //Admin routes
     Route::namespace('Admin')->middleware('auth')->name('admin.')->prefix('admin')->group(function(){
         Route::get('/', function(){

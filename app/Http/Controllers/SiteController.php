@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Category;
 use Illuminate\Http\Request;
 use App\Post;
 use App\Feedback;
@@ -120,5 +121,14 @@ class SiteController extends Controller
         session()->put('lang', $lang);
 
         return redirect()->back();
+    }
+    public function test()
+    {
+        //$model = Post::findOrFail(2);
+
+        //dd($model->category->name);
+        $model = Category::findOrFail(1);
+
+        dd($model->posts);
     }
 }
