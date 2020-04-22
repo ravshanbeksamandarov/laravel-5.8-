@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Post;
+use App\Category;
 use Image;
 use Illuminate\Support\Facades\Storage;
 class PostController extends Controller
@@ -30,7 +31,8 @@ class PostController extends Controller
      */
     public function create()
     {
-        return view('admin.posts.create');
+        $category_list = $this->getAllCategory();
+        return view('admin.posts.create', compact('category_list'));
     }
 
     /**
@@ -45,6 +47,7 @@ class PostController extends Controller
             'title' => 'required',
             'short' => 'required',
             'content' => 'required|min:50',
+            'id_cat'  => 'required',
             'img' => 'required|mimes:jpeg,bmp,png,jpg'
         ]);
 
@@ -71,7 +74,8 @@ class PostController extends Controller
             'short' => $request->short,
             'content' => $request->content,
             'img' => $name,
-            'thumb' => 'thumbs/'.$name
+            'thumb' => 'thumbs/'.$name,
+            'id_cat'  => $request->post('id_cat')
         ];
          Post::create($data);
 
@@ -105,8 +109,9 @@ class PostController extends Controller
     {
          $post = Post::findOrFail($id);
         // dd($update);
+        $category_list = $this->getAllCategory();
 
-         return view("admin.posts.edit", compact('post'));
+        return view("admin.posts.edit", compact('post', 'category_list'));
     }
 
     /**
@@ -124,7 +129,8 @@ class PostController extends Controller
             'title' => 'required',
             'short' => 'required',
             'content' => 'required|min:50',
-            'img' => 'required|mimes:jpeg,bmp,png,jpg'
+            'img' => 'required|mimes:jpeg,bmp,png,jpg',
+            'id_cat'  => 'required'
         ]);
         if ($request->file('img')) {
 
@@ -153,7 +159,8 @@ class PostController extends Controller
             'short' => $request->post('short'),
             'content' => $request->post('content'),
             'img' => $name,
-            'thumb' => $thumb_name
+            'thumb' => $thumb_name,
+            'id_cat'  => $request->post('id_cat')
         ]);
         return redirect()->route('admin.posts.index')->with(['success' => "Xabar yangilandi!"]);
     }
@@ -172,4 +179,10 @@ class PostController extends Controller
 
         return redirect()->route('admin.posts.index')->with(['delete' => "Xabar o'chirildi"]);
     }
+
+    private function getAllCategory()
+    {
+        return Category::all();
+    }
+
 }

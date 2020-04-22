@@ -19,6 +19,14 @@
                     <input class="form-control" name="title" type="text">
                 </div>
                 <div class="form-group">
+                    <label for="">Qategoriya</label>
+                    <select class="form-control" name="id_cat" id="">
+                        @foreach ($category_list as $item)
+                            <option value="{{ $item->id }}">{{ $item->name }}</option>
+                        @endforeach
+                    </select>
+                </div>
+                <div class="form-group">
                     <label for="">Qisqacha</label>
                     <input class="form-control" name="short" type="text">
                 </div>
