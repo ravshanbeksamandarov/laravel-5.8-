@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class RelationPostsCategory extends Migration
+class RelationPostCategory extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,9 @@ class RelationPostsCategory extends Migration
      */
     public function up()
     {
-        Schema::table('posts', function (Blueprint $table) {
-            $table->unsignedBigInteger('id_cat')->index()->after('id');
-            $table->foreign('id_cat')->reference('id')->on('category');
+        Schema::table('posts', function(Blueprint $table) {
+            $table->bigInteger('id_cat')->unsigned()->index()->after('id');
+            $table->foreign('id_cat')->references('id')->on('category');
         });
     }
 
@@ -26,7 +26,7 @@ class RelationPostsCategory extends Migration
      */
     public function down()
     {
-        Schema::table('posts', function (Blueprint $table) {
+        Schema::table('posts', function(Blueprint $table) {
             $table->dropColumn('id_cat');
         });
     }
