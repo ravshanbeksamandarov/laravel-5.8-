@@ -20,10 +20,10 @@
 
 
             <h3 class="heading">
-                {{ $post->title }}
+                {{ $post->translate('title') }}
             </h3>
             <p>
-                {{ $post->short }}
+                {{ $post->translate('short') }}
             </p>
             <p>
                 <a href="{{ route('Blog-single', $post->id) }}" class="btn btn-primary py-2 px-3">Read more</a>

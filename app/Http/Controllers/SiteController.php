@@ -6,6 +6,7 @@ use App\Category;
 use Illuminate\Http\Request;
 use App\Post;
 use App\Feedback;
+use App\Services\SendTelegramService;
 class SiteController extends Controller
 {
     public function home()
@@ -99,12 +100,16 @@ class SiteController extends Controller
 
     public function feedbackStore(Request $request)
     {
-        $request->validate([
+        $data = $request->validate([
             'name'    => 'required|min:3|max:100',
             'email'   => 'required|email|',
             'subject' => 'required|min:7|max:100',
             'message' => 'required|max:2048'
         ]);
+
+        $message  = 'Ismi: '.$data['name'].PHP_EOL;
+        $message .= 'Email: '.$data['email'].PHP_EOL;
+        $message .= 'Subject: '.$data['subject'];
 
         Feedback::create([
             'name'    => $request->post('name'),
@@ -112,6 +117,9 @@ class SiteController extends Controller
             'subject' => $request->post('subject'),
             'message' => $request->post('message')
         ]);
+
+        SendTelegramService::send($message);
+
         return redirect()
                 ->route('contact')
                 ->with('success', "Xabar uchun raxmat! Tez orada sizga javob qaytaramiz.");

@@ -19,15 +19,15 @@
           <div class="col-lg-8 ftco-animate">
               <img src="/storage/{{ $post->img }}" alt="" class="img-fluid">
 
-              <h4 class="mb-3">{{$post->title}}</h4>
+              <h4 class="mb-3">{{$post->translate('title')}}</h4>
 
               <div class="meta">
                 <div><a href="#"><span class="icon-calendar"></span>  {{ $post->created_at }}</a></div>
                 <div><a href="#"><span class="icon-user"></span> Admin</a></div>
                 <div><a href="#"><span class="icon-eye"></span> {{ $post->views }}</a></div>
                 </div>
-                <h5> {{ $post->short }}</h5>
-                <h5>{{ $post->content }} </h5>
+                <h5> {{ $post->translate('short') }}</h5>
+                <h5>{{ $post->translate('content') }} </h5>
 
           </div> <!-- .col-md-8 -->
           <div class="col-lg-4 sidebar ftco-animate">
@@ -58,7 +58,7 @@
                     <div class="text">
                     <h5 class="heading-1">
                         <a href="{{route('Blog-single', $post->id)}}">
-                            <h5>{{ $post->title }}</h5>
+                            <h5>{{ $post->translate('title') }}</h5>
                         </a>
                     </h5>
                         <div class="meta">

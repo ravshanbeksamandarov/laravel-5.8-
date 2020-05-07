@@ -24,17 +24,17 @@
                     @foreach ($posts as $post)
                     <tr>
                         <td>
-                        <img class="img img-thumbnail" width="90px" src="{{ '/storage/'.$post->thumb }}" alt="{{ $post->title }}">
+                        <img class="img img-thumbnail" width="90px" src="/storage/{{ $post->thumb }}" alt="{{ $post->title }}">
                         </td>
-                        <td>{{$post->title}}</td>
-                        <td>{{$post->short}}</td>
+                        <td>{{$post->translate('title')}}</td>
+                        <td>{{$post->translate('short')}}</td>
                         <td>
                             <a target="_blank" href="{{ route('Blog-single', $post->id)}}" class="btn text-white btn-success btn-sm float-left">
                                 <i class="fa fa-eye"></i></a>
-                            <a class="btn btn-sm btn-primary float-left" href="{{ route('admin.posts.edit',['id' => $post->id])}}">
+                            <a class="btn btn-sm btn-primary float-left" href="{{ route('admin.posts.edit', $post->id)}}">
                                 <i class="fa fa-edit"></i></a>
 
-                            <form method="POST" action="{{route('admin.posts.destroy', ['id' => $post->id])}}">
+                            <form method="POST" action="{{route('admin.posts.destroy', $post->id)}}">
                                 @csrf
                                 @method('delete')
                                 <button class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></button>
@@ -45,7 +45,7 @@
                 </tbody>
             </table>
             <div class="blog-pagination justify-content-center d-flex">
-                {{ $links }}
+                {!! $links !!}
             </div>
         </div>
     </div>

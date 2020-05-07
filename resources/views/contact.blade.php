@@ -40,20 +40,7 @@
         </div>
         <div class="row block-9">
           <div class="col-md-6 order-md-last">
-              @if ($errors->any())
-                    <div class="alert alert-danger">
-                        <ul>
-                            @foreach ($errors->all() as $error)
-                                <li>{{ $error }}</li>
-                            @endforeach
-                        </ul>
-                    </div>
-              @endif
-              @if (session()->has('success'))
-                    <div class="alert alert-success">
-                        {{ session()->get('success') }}
-                    </div>
-              @endif
+              @include('admin.alerts.main')
             <form action="{{ route('contact.store') }}" method="POST" class="bg-white p-5 contact-form">
                 @csrf
               <div class="form-group">

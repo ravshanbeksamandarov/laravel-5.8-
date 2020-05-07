@@ -39,7 +39,7 @@
                     <div class="text">
                         <h3 class="heading-1">
                         <a href="{{ route('Blog-single', $most->id) }}">
-                        <h5>{{ $most->title }}</h5>
+                        <h5>{{ $most->translate('title') }}</h5>
                             </a>
                         </h3>
                         <div class="meta">
