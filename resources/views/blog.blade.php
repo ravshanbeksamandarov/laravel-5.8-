@@ -38,7 +38,7 @@
                     <a class="blog-img mr-4" style="background-image: url(/storage/{{ $most->thumb }});"></a>
                     <div class="text">
                         <h3 class="heading-1">
-                        <a href="{{ route('Blog-single', $most->id) }}">
+                        <a href="{{ route('Blog-single', $most->translate('slug')) }}">
                         <h5>{{ $most->translate('title') }}</h5>
                             </a>
                         </h3>

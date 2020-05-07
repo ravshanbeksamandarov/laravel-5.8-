@@ -7,14 +7,14 @@ use Cviebrock\EloquentSluggable\Sluggable;
 
 class Post extends Model
 {
-    //use Sluggable;
+    use Sluggable;
     public $table = 'posts';
 
     public $fillable = [
         'title_uz', 'short_uz', 'content_uz',
         'title_ru', 'short_ru', 'content_ru',
         'title_en', 'short_en', 'content_en',
-       // 'slug_uz', 'slug_ru', 'slug_en',
+        'slug_uz', 'slug_ru', 'slug_en',
         'img', 'thumb', 'views', 'id_cat'
     ];
 

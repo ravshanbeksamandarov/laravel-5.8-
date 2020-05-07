@@ -52,9 +52,11 @@ class SiteController extends Controller
         return view('blog', compact('posts', 'links', 'mosts'));
     }
 
-    public function blogs($id)
+    public function blogs($slug)
     {
-        $post = Post::findOrFail($id);
+        $post = Post::slug($slug)->first();
+        if (!$post)
+            abort(404);
 
         $post->increment('views');
 

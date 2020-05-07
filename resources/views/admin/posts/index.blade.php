@@ -29,7 +29,7 @@
                         <td>{{$post->translate('title')}}</td>
                         <td>{{$post->translate('short')}}</td>
                         <td>
-                            <a target="_blank" href="{{ route('Blog-single', $post->id)}}" class="btn text-white btn-success btn-sm float-left">
+                            <a target="_blank" href="{{ route('Blog-single', $post->translate('slug'))}}" class="btn text-white btn-success btn-sm float-left">
                                 <i class="fa fa-eye"></i></a>
                             <a class="btn btn-sm btn-primary float-left" href="{{ route('admin.posts.edit', $post->id)}}">
                                 <i class="fa fa-edit"></i></a>

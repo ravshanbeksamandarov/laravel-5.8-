@@ -26,7 +26,7 @@
                 {{ $post->translate('short') }}
             </p>
             <p>
-                <a href="{{ route('Blog-single', $post->id) }}" class="btn btn-primary py-2 px-3">Read more</a>
+                <a href="{{ route('Blog-single', $post->translate('slug')) }}" class="btn btn-primary py-2 px-3">Read more</a>
             </p>
 
             {{-- <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div> --}}
