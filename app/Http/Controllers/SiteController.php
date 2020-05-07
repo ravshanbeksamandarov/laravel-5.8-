@@ -82,9 +82,15 @@ class SiteController extends Controller
     {
         $key = $request->get('key');
         $key = '%'.trim($key).'%';
-        $results = Post::where('title', 'LIKE', $key)
-                   ->orWhere('short', 'LIKE', $key)
-                   ->orWhere('content', 'LIKE', $key)
+        $results = Post::where('title_uz', 'LIKE', $key)
+                   ->orWhere('short_uz', 'LIKE', $key)
+                   ->orWhere('content_uz', 'LIKE', $key)
+                   ->orWhere('title_ru', 'LIKE', $key)
+                   ->orWhere('short_ru', 'LIKE', $key)
+                   ->orWhere('content_ru', 'LIKE', $key)
+                   ->orWhere('title_en', 'LIKE', $key)
+                   ->orWhere('short_en', 'LIKE', $key)
+                   ->orWhere('content_en', 'LIKE', $key)
                    ->paginate(3);
 
       //  dd($results->toSql());
