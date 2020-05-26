@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Category;
 use Illuminate\Http\Request;
+use App\Buy;
 use App\Post;
 use App\Feedback;
 use App\Services\SendTelegramService;
@@ -24,7 +25,10 @@ class SiteController extends Controller
 
     public function shop()
     {
-        return view('shop');
+        $buys = Buy::latest()->paginate(3);
+        $links = $buys->links();
+
+        return view('shop', compact('buys', 'links'));
     }
 
     public function single()

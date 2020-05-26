@@ -64,6 +64,11 @@
                     <li class="nav-item  {{ request()->is('admin/feedbacks*') ? 'active' : '' }}">
                         <a href="{{ route('admin.feedbacks.index') }}"> <i class="menu-icon ti-email"></i>Xabarlar</a>
                     </li>
+
+                    <li class="nav-item  {{ request()->is('admin/buys*') ? 'active' : '' }}">
+                        <a href="{{ route('admin.buys.index') }}"> <i class="menu-icon fa fa-tasks"></i>Maxsulotlar</a>
+                    </li>
+
                 </ul>
             </div><!-- /.navbar-collapse -->
         </nav>

@@ -75,6 +75,7 @@ use App\Http\Controllers\SiteController;
 
         //Posts
         Route::resource('posts', 'PostController');
+        Route::resource('buys', 'BuyController');
 
         //Feedback routes
         Route::get('feedbacks', 'FeedbacksController@index')->name('feedbacks.index');

@@ -39,13 +39,13 @@
                     <div class="text">
                         <h3 class="heading-1">
                         <a href="{{ route('Blog-single', $most->translate('slug')) }}">
-                        <h5>{{ $most->translate('title') }}</h5>
-                            </a>
+                            <h5>{{ $most->translate('title') }}</h5>
+                        </a>
                         </h3>
                         <div class="meta">
                         <div><a href="#"><span class="icon-calendar"></span> {{ $most->created_at->format('H:i d/m/Y') }} </a></div>
                             <div><a href="#"><span class="icon-person"></span> Admin</a></div>
-                        <div><a href="#"><span class="icon-chat"></span> {{ $most->views }}</a></div>
+                        <div><a href="#"><span class="icon-eye"></span> {{ $most->views }}</a></div>
                         </div>
                     </div>
                 </div>
