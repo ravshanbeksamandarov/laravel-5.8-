@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Post;
 use App\Feedback;
 use App\Services\SendTelegramService;
+use Illuminate\Support\Facades\Validator;
 class SiteController extends Controller
 {
     public function home()
@@ -108,12 +109,28 @@ class SiteController extends Controller
 
     public function feedbackStore(Request $request)
     {
+        $rules = [
+            'name'    => 'required|min:3|max:100',
+            'email'   => 'required|email|',
+            'subject' => 'required|min:7|max:100',
+            'message' => 'required|max:2048'
+        ];
         $data = $request->validate([
             'name'    => 'required|min:3|max:100',
             'email'   => 'required|email|',
             'subject' => 'required|min:7|max:100',
             'message' => 'required|max:2048'
         ]);
+
+        $validator = Validator::make($request->all(), $rules);
+
+        if ($validator->fails())
+        {
+            return response()->json([
+                'status' => false,
+                'data' => $validator->errors()
+            ]);
+        }
 
         $message  = 'Ismi: '.$data['name'].PHP_EOL;
         $message .= 'Email: '.$data['email'].PHP_EOL;
@@ -128,9 +145,10 @@ class SiteController extends Controller
 
         SendTelegramService::send($message);
 
-        return redirect()
-                ->route('contact')
-                ->with('success', "Xabar uchun raxmat! Tez orada sizga javob qaytaramiz.");
+        return response()->json([
+            'status' => true,
+            'data' => 'Murojaat qabul qilindi!'
+        ]);
     }
     public function switchLang($lang)
     {

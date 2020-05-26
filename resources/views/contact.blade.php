@@ -41,7 +41,9 @@
         <div class="row block-9">
           <div class="col-md-6 order-md-last">
               @include('admin.alerts.main')
-            <form action="{{ route('contact.store') }}" method="POST" class="bg-white p-5 contact-form">
+              <div class="alert alert-success contact-success" style="display: none;"></div>
+              <div class="alert alert-danger contact-error" style="display: none;"></div>
+            <form action="{{ route('contact.store') }}" method="POST" id="contactForm" class="bg-white p-5 contact-form">
                 @csrf
               <div class="form-group">
                 <input value="{{ old('name') }}" name="name" type="text" class="form-control" placeholder="Your Name">
@@ -71,3 +73,35 @@
     </section>
 
 @endsection
+
+@push('scripts')
+<script>
+    $('#contactForm').submit( function(e)
+    {
+        //Stop submit
+        e.preventDefault();
+        //Begin AJAX Request
+        $.ajax({
+            url: $(this).attr('action'),
+            type: 'POST',
+            dataType: 'JSON',
+            data: $(this).serialize(),
+            success: function(response)
+            {
+                if (response.status)
+                {
+                    $('.contact-success').text(response.data).slideDown();
+                }
+                else {
+                    $('.contact-error').text('');
+                    $.each(response.data, function(index, item)
+                    {
+                        $('.contact-error').append(item[0]+'<br>');
+                    });
+                    $('.contact-error').slideDown();
+                }
+            }
+        });
+    });
+</script>
+@endpush

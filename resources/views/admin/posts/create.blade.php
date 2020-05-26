@@ -37,7 +37,7 @@
                     </div>
                     <div class="form-group">
                         <label for="">Maqola</label>
-                        <textarea name="content_uz" id="" class="form-control" cols="30" rows="10"> {{old('content_uz')}}</textarea>
+                        <textarea name="content_uz" id="" class="form-control summernote" cols="30" rows="10"> {{old('content_uz')}}</textarea>
                     </div>
                 </div>
                 <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
@@ -51,7 +51,7 @@
                     </div>
                     <div class="form-group">
                         <label for="">Полный</label>
-                        <textarea name="content_ru" id="" class="form-control" cols="30" rows="10">{{old('content_ru')}}</textarea>
+                        <textarea name="content_ru" id="" class="form-control summernote" cols="30" rows="10">{{old('content_ru')}}</textarea>
                     </div>
                 </div>
                 <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
@@ -65,7 +65,7 @@
                     </div>
                     <div class="form-group">
                         <label for="">Body of article</label>
-                        <textarea name="content_en" id="" class="form-control " cols="30" rows="10">{{old('content_en')}}</textarea>
+                        <textarea name="content_en" id="" class="form-control summernote" cols="30" rows="10">{{old('content_en')}}</textarea>
                     </div>
                 </div>
             </div>
@@ -88,3 +88,5 @@
 </div>
 
 @endsection
+
+@include('admin.components.editor')
